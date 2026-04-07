@@ -4,9 +4,6 @@ import pytest
 
 from orderbook_simulator.orderbook import (
     OrderBook,
-    Order,
-    Trade,
-    BookLevel,
     Side,
     OrderType,
     OrderStatus,
