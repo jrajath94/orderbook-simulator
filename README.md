@@ -5,11 +5,11 @@
 [![CI](https://github.com/jrajath94/orderbook-simulator/workflows/CI/badge.svg)](https://github.com/jrajath94/orderbook-simulator/actions)
 [![Coverage](https://codecov.io/gh/jrajath94/orderbook-simulator/branch/master/graph/badge.svg)](https://codecov.io/gh/jrajath94/orderbook-simulator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10+-green.svg)](https://www.python.org/downloads/)
+[![Python 3.9+](https://img.shields.io/badge/Python-3.9+-green.svg)](https://www.python.org/downloads/)
 
 ## Why This Exists
 
-Testing an execution algorithm requires a realistic market — not just random prices, but a proper limit order book with bid-ask spreads, queue priority, partial fills, and microstructure effects. Most backtesting frameworks skip this layer entirely. This simulator models the full order book at event level, so you can test how your algorithm actually interacts with the market. The difference is substantial: a mean-reversion strategy on SPY intraday data showed +18.5% annual return in a close-price backtest and +3.2% in order book simulation — a 15-point gap that breaks down into entry slippage, missed fills on exits, market impact, and wider realized spreads during volatile periods.
+Testing an execution algorithm requires a realistic market — not just random prices, but a proper limit order book with bid-ask spreads, queue priority, partial fills, and microstructure effects. Most backtesting frameworks skip this layer entirely. This simulator models the full order book at event level, so you can test how your algorithm actually interacts with the market. The difference is substantial: backtests that ignore the order book often significantly overestimate execution quality due to entry slippage, missed fills on exits, market impact, and wider realized spreads during volatile periods.
 
 ## Architecture
 
@@ -72,8 +72,6 @@ print(f"Trades executed: {len(trades)}")
 
 ```bash
 make test    # Unit + integration tests
-make bench   # Performance benchmarks
-make lint    # Ruff + mypy
 ```
 
 ## License
