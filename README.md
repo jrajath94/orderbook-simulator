@@ -9,7 +9,7 @@
 
 ## Why This Exists
 
-Testing an execution algorithm requires a realistic market — not just random prices, but a proper limit order book with bid-ask spreads, queue priority, partial fills, and microstructure effects. Most backtesting frameworks skip this layer entirely. This simulator models the full order book at event level, so you can test how your algorithm actually interacts with the market. The difference is substantial: backtests that ignore the order book often significantly overestimate execution quality due to entry slippage, missed fills on exits, market impact, and wider realized spreads during volatile periods.
+Testing an execution algorithm requires a realistic market - not just random prices, but a proper limit order book with bid-ask spreads, queue priority, partial fills, and microstructure effects. Most backtesting frameworks skip this layer entirely. This simulator models the full order book at event level, so you can test how your algorithm actually interacts with the market. The difference is substantial: backtests that ignore the order book often significantly overestimate execution quality due to entry slippage, missed fills on exits, market impact, and wider realized spreads during volatile periods.
 
 ## Architecture
 
@@ -28,7 +28,7 @@ graph TD
     I --> D
 ```
 
-The core data structure maintains bid and ask sides as price-keyed dictionaries of FIFO queues, implementing price-time priority matching. When an incoming order crosses the spread, the matching engine walks the opposing side, filling against resting orders until the incoming quantity is exhausted or no compatible prices remain. Integer tick pricing eliminates floating-point rounding that accumulates across millions of operations — the same approach used by real exchange protocols (NYSE Pillar, NASDAQ ITCH 5.0).
+The core data structure maintains bid and ask sides as price-keyed dictionaries of FIFO queues, implementing price-time priority matching. When an incoming order crosses the spread, the matching engine walks the opposing side, filling against resting orders until the incoming quantity is exhausted or no compatible prices remain. Integer tick pricing eliminates floating-point rounding that accumulates across millions of operations - the same approach used by real exchange protocols (NYSE Pillar, NASDAQ ITCH 5.0).
 
 ## Quick Start
 
@@ -76,4 +76,4 @@ make test    # Unit + integration tests
 
 ## License
 
-MIT — Rajath John
+MIT - Rajath John
